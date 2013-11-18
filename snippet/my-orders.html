@@ -1,0 +1,44 @@
+{% if signed_in? %}
+
+	{% if items.size ==  1 %}
+
+		<div class="container" id="orders">
+	  		<div class="row">
+	    		<div class="col-lg-12">
+      
+	      			{% for each c in item.contents %}
+	        			{{ c.content }}
+	      			{% endfor %}
+      
+	      			<div id="orders-placeholder"></div>
+	      			<div id="order-detail-placeholder"></div>
+      
+	    		</div>
+	  		</div>
+		</div>
+
+	{% endif %}
+
+{% else %}
+
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-12">
+
+				<h1>
+					My Orders: Please sign in!
+				</h1>
+
+				<p>
+					Please {% sign_in %}sign in{% endsign_in %} to view the status of your orders.
+				</p>
+
+				<p>
+					{% sign_in class: "btn btn-primary" %}<i class="fa fa-lock"></i> Sign In{% endsign_in %}
+				</p>
+
+			</div>
+		</div>
+	</div>
+
+{% endif %}
